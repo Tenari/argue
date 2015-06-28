@@ -10,6 +10,9 @@
   <h1>
     Most people purporting to wisdom dare not engage in dialogue, lest they reveal the paucity of their assumptions and the frailty of their convictions.
   </h1>
+  <% if !user_signed_in? %>
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <% end %>
 
 <%= yield %>
 
