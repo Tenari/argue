@@ -1,0 +1,17 @@
+p#notice = notice
+.pull-right
+  = link_to 'Edit', edit_trial_path(@trial)
+  |  | 
+  = link_to 'Back', trials_path
+.trial
+  h2.title = @trial.title
+  p.claim = @trial.claim
+  - if @trial.argument
+    = render partial: 'arguments/argument', locals: {argument: @trial.argument}
+  - @chain.each do |obj|
+    - if obj.is_a? Argument
+      = render partial: 'arguments/argument', locals: {argument: obj}
+    - if obj.is_a? Question
+      = render partial: 'questions/question', locals: {question: obj}
+    - if obj.is_a? Evidence
+      = render partial: 'evidences/evidence', locals: {evidence: obj}

@@ -10,6 +10,31 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require reset
  *= require_tree .
  *= require_self
  */
+html, body {
+  font-family: tahoma;
+  font-size: 14px;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+h1 {
+  font-size: 25px;
+  line-height: 27px;
+}
+h2 {
+  font-size: 22px;
+  line-height: 24px;
+}
+.site-header {
+  padding: 40px;
+  background-color: #eee;
+  text-align: center;
+}
+.pull-right {
+  float: right !important;
+}

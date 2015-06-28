@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :questions
+  resources :evidences
+  root 'trials#open_trial'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  root 'trials#index'
+  resources :arguments
   resources :trials
+  get 'trials/:id/*sub_path' => 'trials#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

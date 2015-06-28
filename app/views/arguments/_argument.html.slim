@@ -1,0 +1,13 @@
+.argument
+  p = argument.body
+  .actions
+    = link_to 'I Object', new_argument_path
+    = link_to 'What?', new_question_path
+    = link_to 'Because', new_evidence_path
+  .annotations
+    - argument.arguments.each_with_index do |arg, index|
+      a(href="#{arg.path}") a#{index+1}
+    - argument.questions.each_with_index do |arg, index|
+      a(href="#{arg.path}") q#{index+1}
+    - argument.evidences.each_with_index do |arg, index|
+      a(href="#{arg.path}") e#{index+1}

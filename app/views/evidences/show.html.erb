@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @evidence.parent_id %>
+</p>
+
+<p>
+  <strong>Parent type:</strong>
+  <%= @evidence.parent_type %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @evidence.link %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @evidence.title %>
+</p>
+
+<%= link_to 'Edit', edit_evidence_path(@evidence) %> |
+<%= link_to 'Back', evidences_path %>

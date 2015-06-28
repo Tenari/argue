@@ -46,3 +46,5 @@ end
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'cancan'
+gem 'slim'

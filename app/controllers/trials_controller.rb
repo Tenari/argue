@@ -7,9 +7,29 @@ class TrialsController < ApplicationController
     @trials = Trial.all
   end
 
+  # GET /
+  def open_trial
+    @trial = Trial.where(ended_at: nil).first
+    @chain = []
+    render 'show'
+  end
+
   # GET /trials/1
   # GET /trials/1.json
   def show
+    @chain = []
+    if params[:sub_path]
+      path = params[:sub_path].split('/')
+      broken = false
+      path.each_with_index do |part, index|
+        next if index % 2 == 0 || broken == true
+        begin
+          @chain << path[index-1].capitalize.constantize.find(part.to_i)
+        rescue
+          broken = true
+        end
+      end
+    end
   end
 
   # GET /trials/new

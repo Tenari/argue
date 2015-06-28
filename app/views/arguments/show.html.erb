@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @argument.parent_id %>
+</p>
+
+<p>
+  <strong>Parent type:</strong>
+  <%= @argument.parent_type %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @argument.body %>
+</p>
+
+<%= link_to 'Edit', edit_argument_path(@argument) %> |
+<%= link_to 'Back', arguments_path %>

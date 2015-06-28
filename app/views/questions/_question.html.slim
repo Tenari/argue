@@ -1,0 +1,11 @@
+.question
+  p = question.query
+  .actions
+    = link_to 'In my opinion', new_argument_path
+    = link_to 'This should explain', new_evidence_path
+  .annotations
+    - question.arguments.each_with_index do |arg, index|
+      a(href="#{arg.path}") a#{index+1}
+    - question.evidences.each_with_index do |arg, index|
+      a(href="#{arg.path}") e#{index+1}
+

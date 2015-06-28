@@ -1,0 +1,12 @@
+.evidence
+  a(href="#{evidence.link}") = evidence.title
+  .actions
+    = link_to 'This is ridiculous', new_argument_path
+    = link_to 'What?', new_question_path
+  .annotations
+    - evidence.arguments.each_with_index do |arg, index|
+      a(href="#{arg.path}") a#{index+1}
+    - evidence.questions.each_with_index do |arg, index|
+      a(href="#{arg.path}") e#{index+1}
+
+
