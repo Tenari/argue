@@ -1,8 +1,9 @@
 .evidence
   a(href="#{evidence.link}") = evidence.title
-  .actions
-    = link_to 'This is ridiculous', new_argument_path+"?"+{argument: {parent_id: evidence.id, parent_type: evidence.class.to_s}}.to_query
-    = link_to 'What?', new_question_path+"?"+{question: {parent_id: evidence.id, parent_type: evidence.class.to_s}}.to_query
+  - if can?(:create, Argument.new) && can?(:create, Question.new)
+    .actions
+      = link_to 'This is ridiculous', new_argument_path+"?"+{argument: {parent_id: evidence.id, parent_type: evidence.class.to_s}}.to_query
+      = link_to 'What?', new_question_path+"?"+{question: {parent_id: evidence.id, parent_type: evidence.class.to_s}}.to_query
   .annotations
     - evidence.arguments.each_with_index do |arg, index|
       a(href="#{arg.path}") a#{index+1}

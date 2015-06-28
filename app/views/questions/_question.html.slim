@@ -1,8 +1,9 @@
 .question
   p = question.query
-  .actions
-    = link_to 'In my opinion', new_argument_path+"?"+{argument: {parent_id: question.id, parent_type: question.class.to_s}}.to_query
-    = link_to 'This should explain', new_evidence_path+"?"+{evidence: {parent_id: question.id, parent_type: question.class.to_s}}.to_query
+  - if can?(:create, Argument.new) && can?(:create, Evidence.new)
+    .actions
+      = link_to 'In my opinion', new_argument_path+"?"+{argument: {parent_id: question.id, parent_type: question.class.to_s}}.to_query
+      = link_to 'This should explain', new_evidence_path+"?"+{evidence: {parent_id: question.id, parent_type: question.class.to_s}}.to_query
   .annotations
     - question.arguments.each_with_index do |arg, index|
       a(href="#{arg.path}") a#{index+1}

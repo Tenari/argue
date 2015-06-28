@@ -1,9 +1,10 @@
 .argument
   p = argument.body
-  .actions
-    = link_to 'I Object', new_argument_path+"?"+{argument: {parent_id: argument.id, parent_type: argument.class.to_s}}.to_query
-    = link_to 'What?', new_question_path+"?"+{question: {parent_id: argument.id, parent_type: argument.class.to_s}}.to_query
-    = link_to 'Because', new_evidence_path+"?"+{evidence: {parent_id: argument.id, parent_type: argument.class.to_s}}.to_query
+  - if can?(:create, Argument.new) && can?(:create, Question.new) && can?(:create, Evidence.new)
+    .actions
+      = link_to 'I Object', new_argument_path+"?"+{argument: {parent_id: argument.id, parent_type: argument.class.to_s}}.to_query
+      = link_to 'What?', new_question_path+"?"+{question: {parent_id: argument.id, parent_type: argument.class.to_s}}.to_query
+      = link_to 'Because', new_evidence_path+"?"+{evidence: {parent_id: argument.id, parent_type: argument.class.to_s}}.to_query
   .annotations
     - argument.arguments.each_with_index do |arg, index|
       a(href="#{arg.path}") a#{index+1}
