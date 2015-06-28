@@ -35,6 +35,14 @@ h2 {
   background-color: #eee;
   text-align: center;
 }
+.actions {
+  float: right;
+}
+
+/* utility classes */
 .pull-right {
   float: right !important;
+}
+.hide {
+  display: none !important;
 }

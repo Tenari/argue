@@ -14,7 +14,7 @@ class EvidencesController < ApplicationController
 
   # GET /evidences/new
   def new
-    @evidence = Evidence.new
+    @evidence = Evidence.new(evidence_params)
   end
 
   # GET /evidences/1/edit

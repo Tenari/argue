@@ -14,7 +14,7 @@ class ArgumentsController < ApplicationController
 
   # GET /arguments/new
   def new
-    @argument = Argument.new
+    @argument = Argument.new(argument_params)
   end
 
   # GET /arguments/1/edit
