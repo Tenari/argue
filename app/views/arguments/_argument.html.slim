@@ -1,4 +1,6 @@
 .argument
+  - unless argument.parent.is_a? Trial
+    h3 = "a#{argument.parent.arguments.find_index(argument)+1}"
   p = argument.body
   - if can?(:create, Argument.new) && can?(:create, Question.new) && can?(:create, Evidence.new)
     .actions

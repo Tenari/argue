@@ -1,4 +1,5 @@
 .evidence
+  h3 = "e#{evidence.parent.evidences.find_index(evidence)+1}"
   a(href="#{evidence.link}") = evidence.title
   - if can?(:create, Argument.new) && can?(:create, Question.new)
     .actions

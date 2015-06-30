@@ -1,4 +1,5 @@
 .question
+  h3 = "q#{question.parent.questions.find_index(question)+1}"
   p = question.query
   - if can?(:create, Argument.new) && can?(:create, Evidence.new)
     .actions
